@@ -2,6 +2,11 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
+# Root endpoint (handles GET requests to '/')
+@app.route('/')
+def home():
+    return jsonify({"message": "Welcome to the API!"}), 200
+
 # Endpoint to verify data sent from your app
 @app.route('/verify', methods=['POST'])
 def verify_data():
